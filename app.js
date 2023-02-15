@@ -49,7 +49,7 @@ app.use((req,res, next)=>{
 //Routes
 app.use('/', indexRouter);
 app.use('/links', linksRouter);
-app.use('/authentication', authenticationRouter)
+app.use('/', authenticationRouter)
 
 
 //Public
