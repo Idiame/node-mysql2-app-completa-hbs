@@ -28,4 +28,12 @@ router.get('/profile', (req,res)=>{
   res.render('profile')
 })
 
+router.get('/logout', (req,res)=>{
+
+  req.logOut(function(err){
+    if(err) return next(err)
+  }) /*  ESTO ES UN METODO DE PASSPORT, ENTRA EN LA BD Y ELIMINA LA SESION*/ 
+  res.redirect('signin')
+})
+
 module.exports = router;
