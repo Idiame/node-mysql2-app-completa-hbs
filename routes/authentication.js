@@ -13,8 +13,19 @@ router.post('/signup', passport.authenticate('local.signup', {
   failureFlash: true
 }))
 
+router.get('/signin', (req, res)=>{
+  res.render('auth/signin')
+})
+router.post('/signin',(req,res,next)=>{
+  passport.authenticate('local.signin',{
+    successRedirect: '/profile',
+    failureRedirect: '/signin',
+    ailureFlash: true
+  })(req,res,next)
+})
+
 router.get('/profile', (req,res)=>{
-  res.send('THIS IS YOUR PROFILE')
+  res.render('profile')
 })
 
 module.exports = router;
